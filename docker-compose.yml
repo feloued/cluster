@@ -7,7 +7,6 @@ services:
       replicas: 2
     volumes:
       - './my-app/:/usr/local/apache2/htdocs/'
-      - './.htaccess:/usr/local/apache2/htdocs/'
       - './httpd.config:/usr/local/apache2/conf/httpd.conf'
     ports:
       - "80:80"
