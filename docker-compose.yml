@@ -1,12 +1,10 @@
 # Serve ngApp as static files
 version: '3.8'
 services:
-  webapp:
-    image: httpd
-    deploy:
-      replicas: 2
-    volumes:
-      - './my-app/:/usr/local/apache2/htdocs/'
-      - './httpd.config:/usr/local/apache2/conf/httpd.conf'
+  front:
+    image: 'nginx:alpine'
     ports:
-      - "80:80"
+      - '4200:80'
+    volumes:
+      - './nginx.conf:/etc/nginx/nginx.conf'
+      - './my-app/:/usr/share/nginx/html'
